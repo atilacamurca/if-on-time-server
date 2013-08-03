@@ -1,0 +1,183 @@
+<!--
+   index.html
+   
+   Copyright 2013 Átila Camurça <camurca.home@gmail.com>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>if-on-time</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 10px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 40px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 70px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 40px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+      
+      kbd {
+         background: none repeat scroll 0 0 #EEEEEE;
+         border-color: #CCCCCC #AAAAAA #888888 #BBBBBB;
+         border-style: solid;
+         border-width: 1px 2px 2px 1px;
+         color: #000000;
+         padding: 2px 4px 0;
+         white-space: nowrap;
+         -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+              border-radius: 4px;
+      }
+
+      pre kbd {
+         font-size: 14px;
+      }
+    </style>
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css"/>
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="favicon.png">
+  </head>
+
+  <body>
+
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Início</a></li>
+          <li><a href="#">Sobre</a></li>
+        </ul>
+        <h3 class=""><img src="favicon.png"/> if-on-time</h3>
+      </div>
+
+      <hr>
+
+      <div class="jumbotron">
+        <h1>Seus horários direto do seu <i class="icon-android icon-large"></i></h1>
+        <p class="lead">
+           Com <strong>if-on-time</strong> você pode ver seus horários de aula a qualquer hora
+           sem precisar ficar on-line direto do seu Android.
+        </p>
+        <h2>Passo 1:</h2>
+        <a class="btn btn-large btn-success" href="#">
+           <i class="icon-cloud-download icon-large"></i> Baixar aplicativo
+        </a>
+        <div class="alert alert-warning" style="margin-top: 10px;">
+           <i class="icon-warning-sign"></i>
+           Você precisa habilitar instalação de aplicativos de terceiros.
+           <a href="#modal-third-party" role="button" class="" data-toggle="modal">Dica</a>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row-fluid marketing">
+        <div class="span12">
+          <h2>Passo 2:</h2>
+          <p style="font-size: 18px;">
+             Abra seu acadêmico e salve seus horários como HTML, basta dar um
+             <kbd>Ctrl+S</kbd>.
+          </p>
+        </div>
+      </div>
+      <div class="row-fluid marketing">
+        <div class="span12">
+          <h2>Passo 3:</h2>
+          <p style="font-size: 18px;">Submeta a página HTML para cá.</p>
+          <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="upload" accept="text/html">
+            <button type="submit" class="btn btn-primary">
+               <i class="icon-cloud-upload"></i> Enviar
+            </button>
+         </form>
+         <p class="">OBS.: funciona apenas na rede do IFCE Campus Maracanaú</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="footer">
+        <p>&copy; Latin 2013 |
+         <a href="https://twitter.com/atilacamurca" target="_blank">@atilacamurca</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+    
+   <!-- Modal -->
+   <div id="modal-third-party" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+     <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+       <h3 id="myModalLabel">Habilitar aplicativos de terceiros</h3>
+     </div>
+     <div class="modal-body">
+        <p>Clique em <strong>Fontes desconhecidas</strong></p>
+       <img src="img/third-party.png"/>
+     </div>
+     <div class="modal-footer">
+       <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+     </div>
+   </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+</html>
