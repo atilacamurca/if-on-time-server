@@ -44,12 +44,44 @@ exports.upload_file = function (req, res) {
              codigo: hash
          });
          
-         res.end(result);
+         res.end(result, "utf-8");
       } catch (error) {
          res.write("Ocorreu um erro inesperado!\n\n");
          res.end(error.toString());
       }
    });
+}
+
+exports.json_get = function(req, res, query) {
+   var hash = query.hash;
+   console.log("someone is querying " + hash + "...");
+   var json;
+   if (hash) {
+      var sql = "SELECT _id, disciplina, horario_inicio, horario_fim, sala, "
+      + "professor, dia_da_semana FROM horarios WHERE hash = ?";
+      db.all(sql, [hash], function(err, rows) {
+         if (rows.length > 0) {
+            json = JSON.stringify({
+               rows: rows,
+               error: ""
+            });
+            res.writeHead(200, {"Content-Type": "text/json; charset=UTF-8"});
+            res.end(json);
+         } else {
+            res.writeHead(500, {'content-type': 'text/json; charset=UTF-8'});
+            json = JSON.stringify({
+               error: "Código não encontrado."
+            });
+            res.end(json);
+         }
+      });
+   } else {
+      res.writeHead(500, {'content-type': 'text/json; charset=UTF-8'});
+      json = JSON.stringify({
+         error: "HASH não informado."
+      });
+      res.end(json);
+   }
 }
 
 function save_to_database(file, hash) {
@@ -105,7 +137,7 @@ function save_to_database(file, hash) {
                   horario_fim,
                   sala,
                   disciplinas[index].prof,
-                  j, // dia da semana
+                  j + 1, // dia da semana; em Java dias da semana são de 1 a 7
                   hash
                ];
                   
@@ -138,4 +170,11 @@ function exists_hash(hash) {
       }
    });
    return exists;
+}
+
+exports.about = function(req, res) {
+   var template  = require('swig');
+   var tmpl = swig.compileFile(process.cwd() + '/about.html');
+   var result = tmpl.render({});
+   res.end(result, "utf-8");
 }

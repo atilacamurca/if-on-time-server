@@ -12,6 +12,10 @@ http.createServer(function(req, res) {
    
    if (pathname === '/upload') {
       upload.upload_file(req, res);
+   } else if (pathname === '/get') {
+      upload.json_get(req, res, query);
+   } else if (pathname === '/about') {
+      upload.about(req, res);
    } else {
       // http://ericsowell.com/blog/2011/5/6/serving-static-files-from-node-js
       var filePath = '.' + pathname;
@@ -54,6 +58,6 @@ http.createServer(function(req, res) {
          }
       });
    }
-}).listen(9669);
+}).listen(8080);
 
-console.log("Server is running in http://localhost:9669 ...");
+console.log("Server is running in http://localhost:8080 ...");
