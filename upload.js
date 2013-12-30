@@ -28,6 +28,12 @@ exports.upload_file = function (req, res) {
    var form = new formidable.IncomingForm();
 
    form.parse(req, function(err, fields, files) {
+		var size = files.upload.size;
+		if (size === 0) {
+			res.writeHead(200, {'content-type': 'text/html; charset=UTF-8'});
+			res.end("Arquivo não enviado.", "utf-8");
+			return;
+		}
       var utf8_file = files.upload.path + '-utf8';
       var cmd = 'iconv -f iso-8859-1 -t utf-8 ' + files.upload.path
          + '> ' + utf8_file;
@@ -40,7 +46,7 @@ exports.upload_file = function (req, res) {
          fs.unlinkSync(utf8_file);
          var template  = require('swig');
          var tmpl = swig.compileFile(process.cwd() + '/result.html');
-         var result = tmpl.render({
+         var result = tmpl({
              codigo: hash
          });
          
@@ -175,6 +181,6 @@ function exists_hash(hash) {
 exports.about = function(req, res) {
    var template  = require('swig');
    var tmpl = swig.compileFile(process.cwd() + '/about.html');
-   var result = tmpl.render({});
+   var result = tmpl({});
    res.end(result, "utf-8");
 }
