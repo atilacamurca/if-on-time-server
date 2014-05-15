@@ -1,0 +1,32 @@
+{
+  "name": "if-on-time-server",
+  "version": "0.0.0",
+  "description": "Node website to receive uploaded files to synchronize with [if-on-time](https://github.com/atilacamurca/if-on-time) android apps.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/atilacamurca/if-on-time-server.git"
+  },
+  "keywords": [
+    "node",
+    "if-on-time",
+    "ifce"
+  ],
+  "author": "Átila Camurça <camurca.home@gmail.com>",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/atilacamurca/if-on-time-server/issues"
+  },
+  "homepage": "https://github.com/atilacamurca/if-on-time-server",
+  "dependencies": {
+    "jsdom": "^0.10.5",
+    "formidable": "^1.0.14",
+    "execSync": "^1.0.1-pre",
+    "swig": "^1.3.2",
+    "sqlite3": "^2.2.3"
+  }
+}
