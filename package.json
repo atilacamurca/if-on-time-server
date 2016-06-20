@@ -17,16 +17,15 @@
     "ifce"
   ],
   "author": "Átila Camurça <camurca.home@gmail.com>",
-  "license": "GPL-3.0",
+  "license": "GPLv3",
   "bugs": {
     "url": "https://github.com/atilacamurca/if-on-time-server/issues"
   },
   "homepage": "https://github.com/atilacamurca/if-on-time-server",
   "dependencies": {
-    "execSync": "^1.0.2",
+    "jsdom": "9.2.1",
     "formidable": "^1.0.14",
-    "jsdom": "^7.2.2",
-    "sqlite3": "^3.1.1",
-    "swig": "^1.3.2"
+    "swig": "^1.3.2",
+    "sqlite3": "3.1.4"
   }
 }
